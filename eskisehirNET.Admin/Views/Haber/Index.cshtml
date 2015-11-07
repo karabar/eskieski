@@ -1,0 +1,87 @@
+﻿@model IEnumerable<eskisehirNET.Data.Model.Haber>
+@{
+    ViewBag.Title = "Haber";
+}
+
+@section Header{
+    <link rel="stylesheet" href="~/Content/vendor/datatables-bootstrap/dataTables.bootstrap.min.css">
+    <link rel="stylesheet" href="~/Content/vendor/datatables-fixedheader/dataTables.fixedHeader.min.css">
+    <link rel="stylesheet" href="~/Content/vendor/datatables-responsive/dataTables.responsive.min.css">
+    <link rel="stylesheet" href="~/Content/examples/css/tables/datatable.css">
+    }
+
+<div class="page animsition">
+    <div class="page-header">
+        <h1 class="page-title">DataTables</h1>
+        <ol class="breadcrumb">
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="javascript:void(0)">Tables</a></li>
+            <li class="active">DataTables</li>
+        </ol>
+    </div>
+    <div class="page-content">
+        <div class="panel">
+            <header class="panel-heading">
+                <div class="panel-actions"></div>
+                <p>@Html.ActionLink("Yeni Haber Ekle", "Ekle", null, new { @class = "btn btn-info" })</p>
+                <h3 class="panel-title">Basic</h3>
+            </header>
+            <div class="panel-body">
+                <table class="table table-hover dataTable table-striped width-full" data-plugin="dataTable">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Position</th>
+                            <th>Office</th>
+                            <th>Age</th>
+                            <th>Date</th>
+                            <th>Salary</th>
+                        </tr>
+                    </thead>
+                    <tfoot>
+                        <tr>
+                            <th>Name</th>
+                            <th>Position</th>
+                            <th>Office</th>
+                            <th>Age</th>
+                            <th>Date</th>
+                            <th>Salary</th>
+                        </tr>
+                    </tfoot>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                        <tr>
+                            <td>@Html.DisplayFor(model => item.HaberID)</td>
+                            <td>@Html.DisplayFor(model => item.HaberBaslik)</td>
+                            <td>@Html.DisplayFor(model => item.HaberKategorisi.KategoriAdi)</td>
+                            <td>@Html.DisplayFor(model => item.HaberTipi.HaberTipi)</td>
+                            <td>@Html.ActionLink("Düzenle", "Duzenle", new { id = item.HaberID }, new { @class = "btn btn-success" })</td>
+                            <td>@Html.ActionLink("Sil", "Sil", new { id = item.HaberID }, new { @class = "btn btn-danger" })</td>
+                        </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        
+
+    </div>
+</div>
+
+@section PagePlugins{
+    <script src="~/Content/vendor/datatables/jquery.dataTables.min.js"></script>
+    <script src="~/Content/vendor/datatables-fixedheader/dataTables.fixedHeader.js"></script>
+    <script src="~/Content/vendor/datatables-bootstrap/dataTables.bootstrap.min.js"></script>
+    <script src="~/Content/vendor/datatables-responsive/dataTables.responsive.js"></script>
+    <script src="~/Content/vendor/datatables-tabletools/dataTables.tableTools.js"></script>
+    <script src="~/Content/vendor/asrange/jquery-asRange.min.js"></script>
+    <script src="~/Content/vendor/bootbox/bootbox.js"></script>
+}
+
+@section PageScripts{
+    <script src="~/Content/js/components/datatables.min.js"></script>
+    <script src="~/Content/examples/js/tables/datatable.js"></script>
+    <script src="~/Content/examples/js/uikit/icon.js"></script>
+}

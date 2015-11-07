@@ -1,0 +1,81 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+@Styles.Render("~/Content/anasayfa")
+
+<!--<section class="clearfix" style="background-color:#f2f2f2; border-bottom:2px #ff0000 solid;">
+    <div class="container">
+        <div class="col-xs-12 col-sm-6" style="padding:0px;"><img src="Content/banner/ust/banner3.jpg" class="img-responsive pull-left" /></div>
+        <div class="col-xs-12 col-sm-6" style="padding:0px;"><img src="Content/banner/ust/banner1.gif" class="img-responsive pull-right" /></div>
+    </div>
+  </section>-->
+<section class"marginTop10">
+    <div class="container">
+        <div class="col-md-6 padding0">
+            <div id="esslider" class="carousel slide">
+
+                @Html.Partial("_AnasayfaSlider")
+
+            </div>
+        </div>
+        <div class="col-md-3">
+
+            @Html.Partial("_AnasayfaEtkinlik")
+
+        </div>
+
+        <div class="col-md-3 hidden-sm hidden-xs padding0">
+            <aside class="banner ">
+                <img class="img-responsive marginAuto" src="Content/banner/s_banner1.jpg" />
+            </aside>
+            <div class="clearBoth marginTop10"></div>
+            <aside class="banner">
+                <img class="img-responsive marginAuto" src="Content/banner/s_banner2.jpg" />
+            </aside>
+        </div>
+        <div class="hidden-md hidden-lg padding0">
+            <aside class="banner col-xs-6 col-xs-offset-3">
+                <img class="img-responsive marginAuto" src="Content/banner/s_banner1.jpg" />
+            </aside>
+            <div class="clearBoth marginTop10"></div>
+            <aside class="banner col-xs-6 col-xs-offset-3">
+                <img class="img-responsive marginAuto" src="Content/banner/s_banner2.jpg" />
+            </aside>
+        </div>
+
+    </div>
+</section>
+<section class="marginTop10 clearfix">
+    <div class="container">
+        <div class="col-md-9 paddingLeft0">
+            <div class="marginBottom30">
+                @Html.Partial("_AnasayfaYazarlar")
+            </div>
+            <div class="clear"></div>
+            <!--Yatay Reklam (728x90)-->
+            <div class="text-center">
+                <img src="Content/banner/banner_yatay.gif" class="img-responsive marginAuto" />
+            </div>
+            <!--Yatay Reklam Bitiş(728x90)-->
+            <div class="top20">
+                @Html.Partial("_AnasayfaHaberler")
+            </div>
+        </div>
+        <div class="col-md-3 padding0">
+            <div id="ilantab">
+
+                @Html.Partial("_Anasayfailan")
+
+            </div>
+
+            <div class="clear top20"></div>
+            <div class="col-md-12 baslik kirmizi">
+                <h2>NÖBETÇİ ECZANELER</h2>
+            </div>
+            <div class="clearBoth"></div>
+            @Html.Partial("_AnasayfaEczane")
+
+        </div>
+    </div>
+</section>

@@ -1,0 +1,71 @@
+﻿@model System.Collections.Generic.IEnumerable<eskisehirNET.Data.Model.HaberKategori>
+@{
+    ViewBag.Title = "Haber Kategorileri";
+}
+
+@section Header{}
+
+<div class="page animsition">
+    <div class="page-header">
+        <h1 class="page-title">Haber Kategorileri</h1>
+        <div class="page-header-actions">
+            <ol class="breadcrumb">
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="javascript:void(0)">Tables</a></li>
+                <li class="active">Basic</li>
+            </ol>
+        </div>
+    </div>
+    <div class="page-content">
+        <!-- Panel -->
+        <div class="panel">
+            <div class="panel-body container-fluid">
+                <div class="row row-lg">
+                    <div class="col-md-12">
+                        <!-- Example Basic -->
+                        <div class="example-wrap">
+                            <h4 class="example-title">Haber Kategorileri</h4>
+                            <p>@Html.ActionLink("Yeni Kategori Ekle", "Ekle", null, new { @class = "btn btn-info" })</p>
+                            <div class="example table-responsive">
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th>Kategori Adı</th>
+                                            <th>Renk</th>
+                                            <th>Düzenle</th>
+                                            <th>Sil</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach (var item in Model)
+
+                                        {
+                                            <tr>
+                                                <td>@Html.DisplayFor(model => item.KategoriAdi)</td>
+                                                <td>@Html.DisplayFor(model => item.KategoriRenk)</td>
+                                                <td>
+                                                    @Html.ActionLink("Düzenle", "Duzenle", new { id = item.HaberKategoriID }, new { @class = "btn btn-success" })
+                                                </td>
+                                                <td>
+                                                    @Html.ActionLink("Sil", "Sil", new { id = item.HaberKategoriID }, new { @class = "btn btn-danger" })
+                                                </td>
+                                            </tr>
+                                        }
+                                        
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <!-- End Example Basic -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@section PagePlugins{}
+
+@section PageScripts{}
+

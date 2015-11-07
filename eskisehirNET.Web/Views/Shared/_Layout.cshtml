@@ -1,0 +1,127 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EskisehirNET - @ViewBag.Title</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+</head>
+<body>
+    
+    <header id="header-top">
+        <div class="top">
+            <div class="container clearfix positionRelative">
+                <div id="logo-image">
+                    <a href="http://herguneses.org/" class="hidden-xs"><img src="~/Content/images/main-logo.png" alt="Eskisehir.net" width="160"></a>
+                    <a href="http://herguneses.org/" class="visible-xs"><img src="~/Content/images/main-logo.png" alt="Eskisehir.net" width="70"></a>
+                </div>
+                <nav class="navbar navbar-default">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                    </div>
+                    <div id="navbar" class="navbar-collapse collapse">
+                        <ul class="nav navbar-nav ">
+                            <li><a href="#">Nöbetçi Eczaneler</a></li>
+                            <li><a href="#about">Eskişehirspor</a></li>
+                            <li><a href="#contact">Önemli Telefonlar</a></li>
+                        </ul>
+                        <ul class="nav navbar-nav navbar-right">
+
+                            @Html.Partial("_LoginPartial")
+
+                        </ul>
+                    </div><!--/.nav-collapse -->
+                </nav>
+            </div>
+        </div>
+    </header>
+    <div id="menu">
+        <div class="container">
+            <div class="col-xs-4 col-sm-2 text-left hidden-xs padding0 etiMargin42">
+                <a href="http://www.etietieti.com/" target="_blank"><img src="~/Content/images/eti.png" width="120" /></a>
+            </div>
+            <div class="col-xs-4 col-sm-2 text-left visible-xs padding0 etiMargin42">
+                <a href="http://www.etietieti.com/" target="_blank"><img src="~/Content/images/eti.png" width="100" /></a>
+            </div>
+
+            <div class="col-xs-8 col-sm-10">
+                <nav class="navbar navbar-default">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar2" aria-expanded="false" aria-controls="navbar2">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                    </div>
+                    <div id="navbar2" class=" navbar-collapse collapse navigationAnim">
+                        <ul class="nav navbar-nav">
+                            <li class="haber"><a href="http://www.herguneses.org/Haberler/index.html">HABER</a></li>
+                            <li class="seri"><a href="http://www.herguneses.org/Seriilan/index.html">SERİ İLAN</a></li>
+                            <li class="emlak"><a href="http://herguneses.org/EmlakCenter/index.html">EMLAK CENTER</a></li>
+                            <li class="oto"><a href="http://herguneses.org/OtoCenter/index.html">OTO CENTER</a></li>
+                            <li class="etkinlik"><a href="http://www.herguneses.org/Etkinlik/index.html">ETKİNLİK</a></li>
+                            <li class="sinema"><a href="http://www.herguneses.org/Yasam/index.html">YAŞAM</a></li>
+                            <li class="kesfet"><a href="http://www.herguneses.org/Kesfet/index.html">KEŞFET</a></li>
+                            <li class="video"><a href="http://www.herguneses.org/Video/index.html">VİDEO</a></li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </div>
+
+
+        @RenderBody()
+
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+        </footer>
+  
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+
+    <script src="~/js/jquery.mobile-1.4.5.min.js"></script>
+    <!--Mobile slider parmakla sağa sola kayması için-->
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+
+
+    <script>
+       $('#esslider').carousel({
+        interval: 2000
+      });
+       $("#esslider").swiperight(function () {
+        $(this).carousel('prev');
+      });
+       $("#esslider").swipeleft(function () {
+        $(this).carousel('next');
+      });
+       $('#esyazarlar').carousel({
+         interval: 5000
+       });
+       $("#esyazarlar").swiperight(function () {
+         $(this).carousel('prev');
+       });
+       $("#esyazarlar").swipeleft(function () {
+         $(this).carousel('next');
+       });
+
+    $.mobile.loading("hide");
+  
+    $.mobile.loading().hide();
+    </script>
+</body>
+</html>

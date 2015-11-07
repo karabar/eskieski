@@ -1,0 +1,59 @@
+﻿@model eskisehirNET.Data.Model.HaberKategori
+@{
+    ViewBag.Title = "Kategori Silme";
+}
+
+@section Header{}
+
+<div class="page animsition">
+    <div class="page-header">
+        <h1 class="page-title">@Model.KategoriAdi Haber Kategori Silme</h1>
+        <ol class="breadcrumb">
+            <li>@Html.ActionLink("Dashboard", "Index", "Home")</li>
+            <li>@Html.ActionLink("Haber Kategorileri", "Index")</li>
+            <li class="active">Haber Kategorisi Silme</li>
+        </ol>
+    </div>
+    <div class="page-content">
+        <!-- Panel Form Elements -->
+        <div class="panel">
+            <div class="panel-heading">
+                <h3 class="panel-title">Form Elements</h3>
+            </div>
+            <div class="panel-body container-fluid">
+                <div class="row row-lg">
+                    <div class="col-sm-6 col-md-6">
+                        <div class="example-wrap">
+                            <div role="alert" class="alert dark alert-danger alert-avatar alert-dismissible">
+                                <button aria-label="Close" data-dismiss="alert" class="close" type="button">
+                                    <span aria-hidden="true">×</span>
+                                </button>
+                                <h4>@Html.DisplayFor(model => model.KategoriAdi)</h4>
+                                <p>
+                                    Bu kategoriyi sildiğinizde altında yer alan haberlere bir daha ulaşamazsınız!!!
+                                </p>
+                                <p>
+                                    Simek istediğinizden eminmisiniz?
+                                </p>
+                                @using (Html.BeginForm())
+                                {
+                                    @Html.AntiForgeryToken()
+                                    <p class="margin-top-15">
+                                        <input  class="btn btn-danger btn-inverse btn-outline" type="submit" value="Sil"/>
+                                        @Html.ActionLink("Vazgeç", "Index",null, new {@class= "btn btn-link white" })
+                        
+                                    </p>
+                                }
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section PagePlugins{}
+
+@section PageScripts{}

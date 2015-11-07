@@ -1,0 +1,85 @@
+﻿@model eskisehirNET.Data.Model.HaberKategori
+
+@{
+    ViewBag.Title = "Yeni Kategori Ekle";
+}
+
+
+@section Header{
+    <link rel="stylesheet" href="~/Content/vendor/clockpicker/clockpicker.min.css">
+    <link rel="stylesheet" href="~/Content/vendor/ascolorpicker/asColorPicker.min.css">
+    <link rel="stylesheet" href="~/Content/examples/css/forms/advanced.css">
+    }
+
+<div class="page animsition">
+    <div class="page-header">
+        <h1 class="page-title">Yeni Haber Kategori Ekleme</h1>
+        <ol class="breadcrumb">
+            <li>@Html.ActionLink("Dashboard", "Index", "Home")</li>
+            <li>@Html.ActionLink("Haber Kategorileri", "Index")</li>
+            <li class="active">Haber Kategorisi Ekle</li>
+        </ol>
+    </div>
+    <div class="page-content">
+        <!-- Panel Form Elements -->
+        <div class="panel">
+            <div class="panel-heading">
+                <h3 class="panel-title">Form Elements</h3>
+            </div>
+            <div class="panel-body container-fluid">
+                <div class="row row-lg">
+                    @using (Html.BeginForm())
+                        {
+                            @Html.AntiForgeryToken()
+                            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                        <div class="col-sm-6 col-md-4">
+                            <div class="example-wrap">
+                                <h4 class="example-title">KATEGORİ ADI</h4>
+                                @Html.TextBoxFor(model => model.KategoriAdi, new {@class= "form-control", id= "inputHelpText" })
+                                @*@Html.EditorFor(model => model.KategoriAdi, new { AllowHtmlAttribute = new { @class = "form-control", @id = "inputHelpText" } })*@
+                                @Html.ValidationMessageFor(Model => Model.KategoriAdi, "", new { @class = "text-danger" })
+                                <span class="help-block">
+                                    Haberleri konularına göre arşivlemek için haber kategori oluşturmanız gerekmektedir.
+                                </span>
+                            </div>
+                            
+                        </div>
+                        <div class="col-sm-6 col-lg-4">
+                            <!-- Example Simple Mode -->
+                            <div class="example-wrap">
+                                <h4 class="example-title">KATEGORİ RENGİ</h4>
+                            
+                                    @Html.TextBoxFor(model => model.KategoriRenk, new { @class = "asColorpicker form-control", data_plugin = "asColorPicker", data_mode = "simple" })
+                                    @*@Html.EditorFor(model => model.KategoriRenk, new { AllowHtmlAttribute = new { @class = "asColorpicker form-control", data_plugin = "asColorPicker", data_mode = "simple", value = "#fa7a7a" } })*@
+                                    @Html.ValidationMessageFor(Model => Model.KategoriRenk, "", new { @class = "text-danger" })
+                              
+                            </div>
+                            <!-- End Example Simple Mode -->
+                        </div>
+
+                            <div class="form-group">
+                                <div class="col-md-10">
+                                    <input type="submit" value="Kaydet" class="btn btn-info" />
+                                </div>
+                            </div>
+                    }
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@section PagePlugins{
+    <script src="~/Content/vendor/clockpicker/bootstrap-clockpicker.min.js"></script>
+    <script src="~/Content/vendor/ascolor/jquery-asColor.min.js"></script>
+    <script src="~/Content/vendor/asgradient/jquery-asGradient.min.js"></script>
+    <script src="~/Content/vendor/ascolorpicker/jquery-asColorPicker.min.js"></script>  
+    }
+
+@section PageScripts{
+    <script src="~/Content/js/components/clockpicker.min.js"></script>
+    <script src="~/Content/js/components/ascolorpicker.min.js"></script>
+    <script src="~/Content/examples/js/forms/advanced.js"></script>
+    }
